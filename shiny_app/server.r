@@ -10,10 +10,10 @@ k <- 1
 
 # TODO: Low Priority: Consider setting some columns as factors
 database <-
-  read.table("data/reference_data.txt", header = TRUE, encoding = "UTF-8",
+  read.table("./reference_data.txt", header = TRUE, encoding = "UTF-8",
              stringsAsFactors = FALSE, colClasses = c(rep("character", 20)))
 descriptions <-
-  read.table("data/descriptions.txt", header = FALSE, sep = "\t",
+  read.table("./descriptions.txt", header = FALSE, sep = "\t",
              stringsAsFactors = FALSE)
 
  load_user_csv <- function(user_csv) {
