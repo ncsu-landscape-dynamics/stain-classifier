@@ -3,6 +3,7 @@ library(poppr)
 library(reshape2)
 library(dplyr)
 library(magrittr)
+library(poppr)
 
 bruvos_match_threshold <-  0.09929323
 k <- 1
@@ -35,23 +36,23 @@ load_user_csv <- function(user_csv) {
 }
 
 format_input_bruvos <- function(data) {
-   metadata <-
-     select(data, "Sample", "Genotype", "Region", "Country", "Date", "Host",
-            "Missing", "Present")
-   tryCatch(
+  metadata <-
+    select(data, "Sample", "Genotype", "Region", "Country", "Date", "Host",
+           "Missing", "Present")
+  tryCatch(
     data %>%
       dplyr::select("D13", "PinfSSR8", "PinfSSR4", "Pi04", "Pi70", "PinfSSR6", "Pi63",
-             "PiG11", "Pi02", "PinfSSR11", "PinfSSR2", "Pi4B") %>%
-      adegenet::df2genind(ploidy = 3, sep = "/", ind.names = metadata[, 1],
+                    "PiG11", "Pi02", "PinfSSR11", "PinfSSR2", "Pi4B") %>%
+      df2genind(ploidy = 3, sep = "/", ind.names = metadata[, 1],
                 pop = metadata[, 2]),
     warning = function(cond) {
-     output_warn <- print("Ploidy is incorrect.")
-     validate(
-       need(output_warn == "", print(output_warn))
-     )
+      output_warn <- print("Ploidy is incorrect.")
+      validate(
+        need(output_warn == "", print(output_warn))
+      )
     }
-   )
- }
+  )
+}
 
 # A matrix of bruvos distances
 get_bruvos <- function(query, reference) {
