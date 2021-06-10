@@ -1,4 +1,3 @@
-library(shinytest)
 library(shiny)
 library(poppr)
 library(reshape2)
@@ -16,7 +15,7 @@ descriptions <-
   read.table("./descriptions.txt", header = FALSE, sep = "\t",
              stringsAsFactors = FALSE)
 
- load_user_csv <- function(user_csv) {
+load_user_csv <- function(user_csv) {
    tryCatch(read.csv(user_csv, strip.white = TRUE, stringsAsFactors = FALSE,
                      colClasses = c(rep("character", 20)), header = TRUE),
             warning = function(cond) {
@@ -33,7 +32,7 @@ descriptions <-
                        )
                      }
    )
- }
+}
 
 format_input_bruvos <- function(data) {
    metadata <-
@@ -41,9 +40,9 @@ format_input_bruvos <- function(data) {
             "Missing", "Present")
    tryCatch(
     data %>%
-      select("D13", "PinfSSR8", "PinfSSR4", "Pi04", "Pi70", "PinfSSR6", "Pi63",
+      dplyr::select("D13", "PinfSSR8", "PinfSSR4", "Pi04", "Pi70", "PinfSSR6", "Pi63",
              "PiG11", "Pi02", "PinfSSR11", "PinfSSR2", "Pi4B") %>%
-      df2genind(ploidy = 3, sep = "/", ind.names = metadata[, 1],
+      adegenet::df2genind(ploidy = 3, sep = "/", ind.names = metadata[, 1],
                 pop = metadata[, 2]),
     warning = function(cond) {
      output_warn <- print("Ploidy is incorrect.")
@@ -59,7 +58,7 @@ get_bruvos <- function(query, reference) {
   withProgress(message = "Calculating Bruvos Distance", value = 0.4,
                detail = "This usually takes 5 minutes, please be patient.", {
     return(
-      bruvo.between(query, reference,
+      poppr::bruvo.between(query, reference,
                     replen = c(2, 2, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2),
                     add = TRUE, loss = TRUE) %>%
       as.matrix() %>%
