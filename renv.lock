@@ -310,13 +310,6 @@
       "Repository": "CRAN",
       "Hash": "77bd60a6157420d4ffa93b27cf6a58b8"
     },
-    "fastmatch": {
-      "Package": "fastmatch",
-      "Version": "1.1-0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "2cfe25650d69960c54e06840e4b5d8e4"
-    },
     "fs": {
       "Package": "fs",
       "Version": "1.5.0",
@@ -527,13 +520,6 @@
       "Repository": "CRAN",
       "Hash": "e367efa1f0d52cb753bdb9163b63f528"
     },
-    "phangorn": {
-      "Package": "phangorn",
-      "Version": "2.5.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "18ce26a390da0e66df79e6685065d72b"
-    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.4.6",
@@ -599,10 +585,10 @@
     },
     "poppr": {
       "Package": "poppr",
-      "Version": "2.9.0",
+      "Version": "2.9.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7bd232aa167a086907d3fe805efb330d"
+      "Hash": "5ed9e7e8b46fe5ccea790d320a14177c"
     },
     "praise": {
       "Package": "praise",
@@ -659,13 +645,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "97def703420c8ab10d8f0e6c72101e02"
-    },
-    "quadprog": {
-      "Package": "quadprog",
-      "Version": "1.5-8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "5f919ae5e7f83a6f91dcf2288943370d"
     },
     "rappdirs": {
       "Package": "rappdirs",
